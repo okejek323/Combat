@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +11,11 @@ namespace Combat
         public string? Nazwa { get; set; }
         public int HP = 100;
         public int Sila = 10;
+        public int SilaLeczenia = 20;
 
         public int Otrzymaj(int obrażenia)
         {
-            if (HP >= 0)
+            if (HP > 0)
             {
                 HP -= obrażenia;
                 if (HP <= 0)
@@ -29,6 +30,12 @@ namespace Combat
         public void Atakuj(Potwor cel,int Sila)
         {
             cel.Otrzymaj(Sila);
+        }
+
+        public int Ulecz() 
+        { 
+            HP += SilaLeczenia;
+            return HP;
         }
     }
 }
