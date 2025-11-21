@@ -32,9 +32,9 @@ namespace Combat
             cel.Otrzymaj(Sila);
         }
 
-        public int Ulecz() 
+        public int Ulecz(int ile) 
         { 
-            HP += SilaLeczenia;
+            HP += ile;
             return HP;
         }
     }
