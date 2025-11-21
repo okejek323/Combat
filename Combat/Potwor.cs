@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,10 @@ namespace Combat
         public virtual string? Nazwa { get; set; }
         public int HP;
         public int Sila;
+
         public int Otrzymaj(int obrażenia)
         {
-            if (HP >= 0)
+            if (HP > 0)
             {
                 HP -= obrażenia;
                 if (HP <= 0)
@@ -33,8 +34,11 @@ namespace Combat
 
     public class Zombie : Potwor
     {
-        public new string Nazwa = "Zombie";
-        public new int HP = 50;
-        public new int Sila = 7;
+        public Zombie() 
+        {
+			Nazwa = "Zombie";
+			HP = 50;
+			Sila = 7;
+		}
     }
 }
