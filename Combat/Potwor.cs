@@ -41,4 +41,14 @@ namespace Combat
 			Sila = 7;
 		}
     }
+
+    public class Cyklop : Potwor
+    {
+        public Cyklop()
+        {
+            Nazwa = "Cyklop";
+            HP = 75;
+            Sila = 10;
+        }
+    }
 }
