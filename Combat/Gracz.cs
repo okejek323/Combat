@@ -11,7 +11,7 @@ namespace Combat
         public string? Nazwa { get; set; }
         public int HP = 100;
         public int Sila = 10;
-        public int SilaLeczenia = 20;
+        public int SilaLeczenia = 15;
 
         public int Otrzymaj(int obrażenia)
         {
@@ -35,6 +35,10 @@ namespace Combat
         public int Ulecz(int ile) 
         { 
             HP += ile;
+            if (HP > 100)
+            {
+                HP = 100;
+            }
             return HP;
         }
     }
