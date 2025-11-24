@@ -9,7 +9,9 @@ namespace Combat
     public class Potwor
     {
         public virtual string? Nazwa { get; set; }
+        public string? NazwaWyswietl;
         public int HP;
+        public int HPMax;
         public int Sila;
         public virtual void SpecjalnyAtak(Gracz cel) { }
 
@@ -35,12 +37,14 @@ namespace Combat
 
     public class Zombie : Potwor
     {
-        public Zombie() 
+        public Zombie()
         {
-			Nazwa = "zombie";
-			HP = 50;
-			Sila = 7;
-		}
+            Nazwa = "zombie";
+            NazwaWyswietl = "Zombie";
+            HP = 50;
+            HPMax = 50;
+            Sila = 7;
+        }
     }
 
     public class Cyklop : Potwor
@@ -48,19 +52,23 @@ namespace Combat
         public Cyklop()
         {
             Nazwa = "cyklop";
+            NazwaWyswietl = "Cyklop";
             HP = 75;
+            HPMax = 75;
             Sila = 10;
         }
     }
 
     public class Wampir : Potwor
     {
-        public int SilaKrwi = 30;
+        public int SilaKrwi = 20;
 
-		public Wampir()
+        public Wampir()
         {
             Nazwa = "wapir";
-            HP = 90;
+            NazwaWyswietl = "Wampir";
+            HP = 100;
+            HPMax = 100;
             Sila = 10;
         }
 
@@ -70,8 +78,8 @@ namespace Combat
 
             cel.Otrzymaj(SilaKrwi);
             Console.WriteLine($"Otrzymano {SilaKrwi} obrażeń");
-            HP += SilaKrwi / 3;
-            Console.WriteLine($"Wampir uzyskał {SilaKrwi/3} HP, teraz ma {HP} HP");
-		}
+            HP += SilaKrwi / 2;
+            Console.WriteLine($"Wampir uzyskał {SilaKrwi / 2} HP, teraz ma {HP}/{HPMax} HP");
+        }
     }
 }
