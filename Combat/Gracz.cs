@@ -10,6 +10,7 @@ namespace Combat
     {
         public string? Nazwa { get; set; }
         public int HP = 100;
+        public int HPMax = 100;
         public int Sila = 10;
         public int SilaLeczenia = 15;
 
@@ -27,20 +28,19 @@ namespace Combat
             return HP;
         }
 
-        public void Atakuj(Potwor cel,int Sila)
+        public void Atakuj(Potwor cel, int Sila)
         {
             cel.Otrzymaj(Sila);
         }
 
-        public int Ulecz(int ile) 
-        { 
+        public int Ulecz(int ile)
+        {
             HP += ile;
-            if (HP > 100)
+            if (HP > HPMax)
             {
-                HP = 100;
+                HP = HPMax;
             }
             return HP;
         }
     }
 }
-
